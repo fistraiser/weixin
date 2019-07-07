@@ -1,0 +1,110 @@
+<!--pages/home/home.wxml-->
+<view class="header-search" hidden="{{!hiddenTrolley}}">
+<view class='search-input' bindtap='setHiddenToReverse'>
+  <input placeholder="请输入"
+   bindinput="input" class='input'></input>
+</view>
+<view class="search-btn" bindtap='search'>{{button}}</view>
+</view>
+<view id="orderPage">
+<scroll-view bindscrolltolower="lower" class="orderPage-sideBar" scroll-y="true" style="height:100%" hidden="{{hidden}}">
+<block wx:for="{{menu}}" wx:key="">
+  <view class="menuList">
+    <view class="menu {{index==selected?'selected':''}}" 
+      data-index="{{index}}" 
+      catchtap="turnMenu">{{item.typeName}}</view>
+  </view>
+</block>
+</scroll-view>
+
+<scroll-view class="foodList" scroll-y="true" hidden="{{hidden}}">
+      <view class="title">{{menu[selected].typeName}}</view>
+      <block wx:for="{{menu[selected].menuContent}}" wx:key="">
+        <view class="food">
+          <image class="img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}" lazy-load='true'></image>
+          <view class="food-info">
+            <view class="name">{{item.name}}</view>
+            <view class="sales">销量 {{item.sales}} 评分 {{item.rating}}
+            </view>
+            <view class="price">￥{{item.price}}</view>
+          </view>
+          <view class="food-numb">
+            <view class="remove" 
+            bindtap="removeFromTrolley"
+            hidden="{{item.numb==0}}" 
+            data-index="{{index}}">-</view>
+            <text class="text" 
+            hidden="{{item.numb==0}}">{{item.numb}}</text>
+            <view class="add" 
+            bindtap="addToTrolley" data-index="{{index}}">+</view>
+          </view>
+        </view>
+      </block>
+</scroll-view>
+
+<scroll-view class="foodList" scroll-y="true" hidden="{{hiddenSearch}}">
+      <!-- <view class="title">{{menu[selected].typeName}}</view> -->
+      <block wx:for="{{searchMenu}}" wx:key="">
+        <view class="food">
+          <image class="img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}" lazy-load='true'></image>
+          <view class="food-info">
+            <view class="name">{{item.name}}</view>
+            <view class="sales">销量 {{item.sales}} 评分 {{item.rating}}
+            </view>
+            <view class="price">￥  {{item.price}}</view>
+          </view>
+          <view class="food-numb">
+            <view class="remove" 
+            bindtap="searchRemoveFromTrolley"
+            hidden="{{item.numb==0}}" 
+            data-index="{{index}}">-</view>
+            <text class="text" 
+            hidden="{{item.numb==0}}">{{item.numb}}</text>
+            <view class="add" 
+            bindtap="searchAddToTrolley" data-index="{{index}}">+</view>
+          </view>
+        </view>
+      </block>
+</scroll-view>
+
+<view class='cart' hidden="{{hiddenTrolley}}" animation='{{cartAnimationData}}'>
+<scroll-view class="foodList" scroll-y="true" >
+      <!-- <view class="title">{{menu[selected].typeName}}</view> -->
+      <view class='trolley'>购物车</view>
+      <block wx:for="{{trolleyOrder}}" wx:key="">
+        <view class="food">
+          <image class="img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}" lazy-load='true'></image>
+          <view class="food-info">
+            <view class="name">{{item.name}}</view>
+            <view class="sales">销量 {{item.sales}} 评分 {{item.rating}}
+            </view>
+            <view class="price">￥  {{item.price}}</view>
+          </view>
+          <view class="food-numb">
+            <view class="remove" 
+            bindtap="trolleyRemove"
+            hidden="{{item.numb==0}}" 
+            data-index="{{index}}">-</view>
+            <text class="text" 
+            hidden="{{item.numb==0}}">{{item.numb}}</text>
+            <view class="add" 
+            bindtap="trolleyAdd" data-index="{{index}}">+</view>
+          </view>
+        </view>
+      </block>
+</scroll-view>
+</view>
+
+<view class="footer {{cost!=0?'active':''}}">
+      <view class="howMuch">
+        <view class="img" style="background:{{cost!=0?'#FFD161':'#E7E7E7'}};" bindtap='trolley'>
+          <image src="/images/trolley.png" style="width:60rpx;height:60rpx;"></image>
+        </view>
+        <view class="cost" hidden="{{cost==0}}">￥{{cost}}</view>
+        <!-- <view class="free">免配送费</view> -->
+      </view>
+      <!-- <view class="pay">{{cost!=0?'提交':'15元起送'}}</view>       -->
+      <text class="text">已选 {{foodNumber}}</text>
+      <view class="pay" bindtap='commit'>{{'提交'}}</view>
+    </view>
+</view>    

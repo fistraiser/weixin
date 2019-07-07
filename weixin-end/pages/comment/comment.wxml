@@ -1,0 +1,25 @@
+<!--pages/comment/comment.wxml-->
+<scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderMap.order}}" wx:key="" wx:for-index='idx'>
+    <view class="order-content">
+      <image class="order-content-img" src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}"></image>
+      <view class="order-content-name">{{item.name}}</view>
+    </view>
+    <!-- 星星 -->
+    <view class='star-comment'>
+      <block wx:for="{{[0,1,2,3,4]}}" wx:key="">
+        <image class='star-image' style="left: {{item*80}}rpx" src="{{scores[idx] > item ?(scores[idx]-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+        <view class='item' style="left:0rpx" data-score="{{item + 0.5}}" data-idx='{{idx}}' bindtap="selectLeft" ></view>
+        <view class='item' style="left:40rpx" data-score="{{item + 1}}" data-idx='{{idx}}' bindtap="selectRight"></view>
+        </image>
+      </block>
+    </view>
+  </block>
+</scroll-view>
+
+<text class="currentWordNumber">{{currentWordNumber|0}}/{{maxlength}}</text>
+
+<textarea class="areas" placeholder='更多评价...' minlength="{{minlength}}" maxlength="{{maxlength}}" bindinput="inputs" contenteditable="true">
+</textarea>
+
+<button class='btn' bindtap='submit_comment'>提交评价</button>

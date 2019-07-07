@@ -1,0 +1,25 @@
+<!--pages/admin/admin.wxml-->
+<!--登录页面-->
+<view class="item">
+
+  <view class="login-icon">
+    <image class="login-img" src="/images/login.jpg"></image>
+  </view>
+
+      <view class="login-item">
+           <!-- <view class="login-item-info">用户名</view> -->
+           <view><input placeholder='用户名' bindinput="usernameInput" /></view>
+      </view>
+
+      <view class="login-item">
+           <!-- <view class="login-item-info">密码</view> -->
+           <view class="login-pwd">
+           <input placeholder='密码' style="flex-grow:1" password="true" bindinput="passwordInput" /> 
+           <!-- <text> 忘记密码 </text> -->
+           </view>
+      </view>
+
+      <view class="login-item bottom">
+           <button class="login-btn" bindtap="login">登录</button>
+      </view>
+</view>

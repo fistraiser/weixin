@@ -1,0 +1,44 @@
+<!--pages/order/order.wxml-->
+
+
+
+<scroll-view class="container" scroll-y="true">
+  <block wx:for="{{orderList}}" wx:key="">
+    <view class="orderList">
+      <view class="order-title">
+        <view class="order-title-restaurantName">
+          {{item.name}}</view>
+          <view class="order-content-info">
+          <view class="order-content-info-date">
+          {{item.date}}</view>
+          </view>
+        <view class="order-title-state">{{item.state}}</view>
+      </view>
+      <!-- <view class="order-content"> -->
+      <block wx:for="{{item.order}}" wx:key="" >
+        <view class="order-content">
+        <image class="order-content-restaurantImg" lazy-load='true'
+         src="{{item.src==''|| item.src==null?defaultImg:path+item.src}}"></image>
+         <view class="order-content-name">{{item.name}} X {{item.numb}}</view>
+        </view>
+      </block>
+        <!-- <view class="order-content-info"> -->
+          <!-- <view class="order-content-info-price">￥ {{item.price}}</view> -->
+          <!-- <view class="order-content-info-date">
+          {{item.date}}</view> -->
+          <!-- <view class="order-content-info-howToDistribute">
+          由 {{item.howToDistribute}} 提供服务</view> -->
+        <!-- </view> -->
+      <!-- </view> -->
+      <view class="order-footer">
+        <!-- <view class="order-footer-orderAgain">再来一单</view> -->
+        <view class="order-footer-goToComment" bindtap='toComment' data-index='{{index}}'>{{item.state == '订单已完成'?'已评价':'去评价'}}</view>
+      </view>
+    </view>
+  </block> 
+</scroll-view>
+
+<view wx:if="{{orderList.length == 0}}" class='alert'>
+<image class='blank' src='/images/warning.png'></image>
+</view>
+<view wx:if="{{orderList.length == 0}}" class='no-history'>没有历史订单</view>

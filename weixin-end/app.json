@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/admin/admin",
+    "pages/home/home",
+    "pages/order/order",
+    "pages/myInfo/myInfo",
+    "pages/comment/comment",
+    "pages/checkComment/checkComment",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFC640",
+    "navigationBarTitleText": "订餐",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#3399FF",
+    "selectedColor": "#3399FF",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png",
+        "color": "white",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-selected.png",
+        "color": "white",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/myInfo/myInfo",
+        "iconPath": "images/myInfo.png",
+        "selectedIconPath": "images/myInfo-selected.png",
+        "color": "white",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,31 @@
+<!--pages/myInfo/myInfo.wxml-->
+<view class="container" hidden='{{hidden}}'>
+
+  <view class="header">
+    <view class="userImg">
+    <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="userName">{{username}}</view>
+  </view>
+
+  <view class="content">
+    <view class="tel">客服电话: {{tel}}</view>
+    <button class="btn" bindtap='changePassword'>修改密码</button>
+    <button class="btn" bindtap='signOut'>注销登录</button>
+  </view>
+</view>
+
+  <view class="layer" animation="{{pwdAnimationData}}">
+    <view class="password-item">
+           <view class="item-info">新密码</view>
+           <view class="pwd">
+            <input value="{{passwordNew}}" style="flex-grow:1 " password="true" bindinput="passwordNew" /> 
+           </view>
+           <view class="item-info">确认密码</view>
+           <view class="pwd">
+            <input value="{{passwordConfirm}}" style="flex-grow:1" password="true" bindinput="passwordConfirm" /> 
+           </view>
+           <button class="btnConfirm" bindtap="confirm">确认</button>
+           <button class="btnConfirm" bindtap='cancel'>取消</button>
+    </view>
+  </view>

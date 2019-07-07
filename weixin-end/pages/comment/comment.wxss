@@ -1,0 +1,73 @@
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+  box-sizing: border-box;
+  margin-bottom: 120rpx;
+}
+.order-content{
+  height: 250rpx;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #ECECEC; 
+}
+.order-content-img {
+  width: 200rpx;
+  height: 175rpx;
+}
+.order-content-name{
+  margin:0 auto;
+}
+.btn {
+  width: 600rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background: #FFC640;
+  position: fixed;
+  left:75rpx;
+  bottom: 35rpx;
+} 
+.star-comment {
+  height: 120rpx;
+  width: 100%;
+}
+.star-image {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+}
+.item {
+  position: absolute;
+  top: 0rpx;
+  width: 40px;
+  height: 80rpx;
+}
+.areas{
+  box-sizing: border-box;
+  width:100%;
+  height:300rpx;
+  font-size: 35rpx;
+  padding-top: 40rpx;
+  overflow: hidden;   
+  position: relative; 
+  margin-bottom: 150rpx;
+  padding-right: 50rpx;
+  margin-right: 30rpx;
+  margin-left: 30rpx;
+  text-align: justify;
+}
+.currentWordNumber{
+  width: 100%;
+  font-size: 28rpx;
+  color: gray;
+  position: relative;
+  left: 85%;
+  top: 5rpx;
+  margin-bottom: 30rpx;
+}
